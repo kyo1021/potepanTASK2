@@ -1,0 +1,34 @@
+<div class="top">
+    <div class="form-area">
+        <h2>Potepan Shareでまだ体験したことのない旅をしよう</h2>
+        <%= search_form_for @search_r, url: @search_rooms_path do |f| %>
+            <p>エリア</p>
+                <%= f.text_field :address_cont, placeholder: '東京', size:34, class:"search-window" %>
+            <div>
+                <%= f.submit ("探す") ,class:"reserve-btn" %>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<div class="recommend-area">
+    <h2>おすすめエリア</h2>
+    <div class="pnl">
+        <div class="area-panel">
+            <h2>東京</h2>
+            <%= link_to image_tag("img_tokyo.jpg"), rooms_path(@q,:'q[address_cont]' => "東京") %>
+        </div>
+        <div class="area-panel">
+            <h2>大阪</h2>
+            <%= link_to image_tag("img_osaka.jpg"), rooms_path(@q,:'q[address_cont]' => "大阪") %>
+        </div>
+        <div class="area-panel">
+            <h2>京都</h2>
+            <%= link_to image_tag("img_kyoto.jpg"), rooms_path(@q,:'q[address_cont]' => "京都") %>
+        </div>
+        <div class="area-panel">
+            <h2>札幌</h2>
+            <%= link_to image_tag("img_sapporo.jpg"), rooms_path(@q,:'q[address_cont]' => "札幌") %>
+        </div>
+    </div>
+</div>

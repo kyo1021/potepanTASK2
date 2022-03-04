@@ -1,0 +1,29 @@
+<h1>検索結果:<%= @search_rooms.count %>件</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ルーム画像</th>
+            <th>ルーム名</th>
+            <th>住所</th>
+            <th><%= sort_link(@search_r, :price, "価格") %></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @search_rooms.each do |s| %>        
+            <tr>
+                <td><a href="<%= "rooms/#{s.id}" %>">
+                    <img src="<%= "#{s.image}" %>">
+                </a>
+                </td>
+                <td><a href="<%= "rooms/#{s.id}" %>">
+                    <%= s.name %>
+                </a>
+                </td>
+                <td><%= s.address %></td>
+                <td>¥<%= s.price %>/日</td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+    
