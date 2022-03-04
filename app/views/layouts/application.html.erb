@@ -1,16 +1,107 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>A</title>
+    <title>PoteShare Task</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class="header-left">
+        <a href="/">
+          <img src="/assets/logo.png" alt="logo">
+        </a>
+        <div>
+          <%= search_form_for @search_r, url: @search_rooms_path do |f| %>
+            <%= f.text_field :address_cont ,placeholder: 'エリア' %>
+          <% end %>
+        </div>
+        <div>
+          <%= search_form_for @search_r, url: @search_rooms_path do |f| %>
+            <%= f.text_field :name_or_address_or_introduction_cont ,placeholder: 'キーワード' %>
+          <% end %>
+        </div>
+      </div>
+    
+      <div class="header-right">
+        <% if user_signed_in? %>
+          <div id="dropdown">
+            <l class="device-username"><%= current_user.username %></l>
+            <% if current_user.image.file == nil %>
+              <img src="/assets/default_icon.png" class="default_image">
+            <% else %>
+              <img src="<%= current_user.image %>">
+            <% end %>
+        
+            <nav class="menu-bar hidden">
+              <ul>
+                <li><%= link_to "ルーム登録", :new_room ,class:"menu-list" %></li>
+                <li><%= link_to("予約済みルーム一覧", "/reservations" ,class:"menu-list") %></li>
+                <li><%= link_to("登録済みルーム一覧", "/rooms/posts",class:"menu-list") %></li>
+                <li><%= link_to("プロフィール設定", "/users/edit",class:"menu-list") %></li>
+                <li><%= link_to("ログアウト", "/users/sign_out", method: :delete ,class:"menu-list") %></li>
+              </ul>
+            </nav>
+          </div>
+        <% else %>
+          <%= link_to("ログイン", "/users/sign_in", class: "header-login-btn") %>
+          <%= link_to("登録する", "/users/sign_up", class: "header-login-btn") %>
+        <% end %>
+      </div>
+    </header>
+    
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+      
     <%= yield %>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+
+    $(document).ready(function(){
+      $("#dropdown").on('click',function() {
+      $(".menu-bar").toggleClass("hidden");
+      });
+    });
+
+    function hoge() {
+ 
+    // フォームの入力を取得
+      var date1 = document.getElementById('start-date-input').value;
+      var date2 = document.getElementById('last-date-input').value;
+      var peo = document.getElementById('people-input').value;
+      var pri = document.getElementById('price-input').value;
+ 
+    // date型に変換
+      date1 = new Date(date1);
+      date2 = new Date(date2);
+ 
+    // 計算　86400000ミリ秒(1日)
+      var result_date = (date2 - date1) / 86400000;
+      var result = result_date * peo * pri;
+
+    // 表示用要素取得
+      var obj = document.getElementsByClassName("badge")[0];    
+    // 結果表示
+      obj.innerHTML = result;
+ 
+    }
+  
+    </script>
+
+    <footer>
+      <p>© 2020 POTEPAN.INC.</p>
+    </footer>
   </body>
+  
+
+
 </html>

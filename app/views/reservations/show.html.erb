@@ -1,0 +1,32 @@
+<h1>予約部屋詳細</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ルーム写真</th>
+            <th>ルーム名</th>
+            <th>ルーム紹介</th>
+            <th>開始日</th>
+            <th>終了日</th>
+            <th>引き算</th>
+            <th>金額</th>
+            <th>人数</th>
+            <th>合計料金</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td><img src="<%= "#{@rooms.image}" %>"></td>
+                <td><%= @rooms.name %></td>
+                <td><%= @rooms.introduction %></td>
+                <td><%= @reservation.start_date.to_s(:datetime_jp) %></td>
+                <td><%= @reservation.last_date.to_s(:datetime_jp) %></td>
+                <td><%= (@reservation.last_date.to_i - @reservation.start_date.to_i) / 3600 / 24  %></td>
+                <td><%= @rooms.price %></td>
+                <td><%= @reservation.people %></td>
+                <td>¥<%= @rooms.price.to_i * @reservation.people.to_i * (@reservation.last_date.to_i - @reservation.start_date.to_i) / 3600 / 24 %></td>
+            </tr>    
+    </tbody>
+</table>
+
+

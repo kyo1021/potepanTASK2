@@ -1,0 +1,66 @@
+<h2>部屋詳細</h2>
+
+<div class="room-detail">
+    <div>
+        <div class = "room-image">
+            <img src="<%= @room.image %>">
+        </div>
+        <div class="room-summary">
+            <div class="room-detail-left">
+                <% if current_user == nil %>
+                    <img src="/assets/default_icon.png" class="default_image">
+                <% elsif current_user.image.file == nil %>
+                    <img src="/assets/default_icon.png" class="default_image">
+                <% else %>
+                    <img src="<%= current_user.image %>">
+                <% end %>
+            </div>
+            <div class="room-detail-right">
+                <div class="room-name">
+                    <%= @room.name %>
+                </div>
+                <div class="room-address">
+                    <%= @room.address %>
+                </div>
+            </div>
+        </div>
+    
+        <div class="room-introduction">
+            <%= @room.introduction %>
+        </div>
+    </div>
+    
+    <input type="hidden" id="price-input" value="<%= @room.price %>" >
+        
+    <div class="reserve-form">
+        <div class="reserve-form-input">
+            ¥ <span><%= @room.price %></span> / 日
+        </div>
+        <%= form_for @reservation do |r| %>
+        <div class="reserve-form-input">
+            <%= r.label :start_date ,"開始日" %>
+            <%= r.date_field :start_date, id: "start-date-input", value: Date.today, oninput: "hoge()" %>
+        </div>
+        <div class="reserve-form-input">
+            <%= r.label :last_date ,"終了日" %>
+            <%= r.date_field :last_date, id: "last-date-input", value: Date.tomorrow, oninput: "hoge()" %>
+        </div>    
+        <div class="reserve-form-input">
+            <%= r.label :people ,"人数" %>
+            <%= r.number_field :people, id: "people-input", oninput: "hoge()", value: "1", :placeholder => "人数を入力", min: 1 %>
+        </div>    
+    
+        <p class="total-price">合計金額： ¥<span class="badge"><%= @room.price %></span></p>
+ 
+        <%= r.hidden_field :room_id, value: @room.id %>
+    
+        <div class="action">
+            <% if user_signed_in? %>
+                <%= r.submit "予約する", class: "reserve-btn" %>
+            <% else %>
+                <%= link_to("ログイン", "/users/sign_in", class: "login-btn") %>
+            <% end %>
+        </div>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,244 @@
+header {
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+footer {
+    display: flex;
+    background-color: #888;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    height: 50px;
+}
+
+.notice {
+    background-color:yellow;
+    margin: 0;
+}
+
+
+li {
+  list-style: none;  
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 0 auto;
+}
+
+.device-username{
+    color: white;
+}
+
+.top {
+    background-image: url('img_cover_top.jpg');
+    background-size: cover;
+    height: 550px;
+    display: flex;
+    align-items: center;
+}
+
+.form-area {
+    background-color: white;
+    letter-spacing: 1px;
+    padding: 24px;
+    width: 95%;
+    margin-left:40px;
+    margin-right:40px;
+    border-radius:10px;
+    font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.form-area h2 {
+    margin-left:20px;
+}
+
+.form-area p {
+    font-size: 12px;
+    margin-left:20px;
+}
+
+.search-window {
+    margin-bottom:20px;
+    width: 94%;
+    height:38px;
+    margin-left:20px;
+}
+
+.pnl {
+    display: flex;
+}
+
+.area-panel {
+    padding: 0 15px;
+}
+
+.area-panel img {
+    width: 200px;
+    height: 200px;
+}
+
+table {
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+    text-align: center;
+    border-spacing: 0;
+}
+
+table td{
+    border-top: 1px solid #E5E5E5;
+    padding: 10px 10px;
+    margin: 0 20px;
+}
+
+table th{
+    width: auto;
+    padding: 10px 10px;
+    margin: 0 20px;
+}
+
+.reserve-form {
+    margin: 20px 0;
+}
+
+.reserve-btn {
+    background-color: #3299FF;
+    color: white;
+    border-radius: 10px;
+    border:1px solid #222;
+    width: 95%;
+    height: 40px;
+    margin-left:20px;
+    cursor:pointer
+}
+
+.pnl {
+    margin-left:30px;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.header-login-btn {
+    background-color: #3299FF;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 12px;
+    height: 20px;
+    padding: 5px;
+    margin: 0 5px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.login-btn {
+    background-color: #3299FF;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 5px 40px;
+}
+
+.default_image {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.room-detail {
+    display: flex;
+}
+
+.room-summary {
+    display:flex;
+    border-top: 1px solid #E5E5E5;
+    width: 750px;
+    margin-left: 20px;
+}
+
+.room-image {
+    width: 750px;
+}
+
+.room-detail-left {
+    width: 50px;
+    text-align: center;
+    padding: 10px;
+}
+
+.room-detail-right {
+    width: 700px;
+    text-align: left;
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.room-name {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.room-address {
+    margin: 10px 0;
+}
+
+.room-introduction {
+    width: 750px;
+    margin-left: 20px;
+    text-align: left;
+    padding: 10px;
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.reserve-form-input {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.reserve-form-input span{
+    font-weight: bold;
+}
+
+.action {
+    margin-top: 10px;
+}
+
+.menu-bar {
+    position: absolute;
+    top: 80px;
+    right: 8px;
+    background-color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.menu-bar ul li {
+    list-style: none;
+    margin: 5px 0;
+}
+
+.menu-list {
+    text-decoration: none;
+    color: black;
+}
+
+.badge {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.total-price {
+    margin: 0;
+}
